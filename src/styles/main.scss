@@ -1,3 +1,64 @@
+@use 'variaveis'; //importação das variaveis
+@use 'hero'; //importação do hero
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);      //importação da fonte externa
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);      //importação da fonte externa em negrito
+    font-weight: 700;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 body {
-    background-color: red;
+    background-color: variaveis.$corDeFundo;
+    font-family: Avenir, sans-serif;
+}
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;             //mixin para o "line-height" dos textos ter sempre mais 10px
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px) {
+    @include text($fontSize);               //mixin dos titulos
+
+    color: variaveis.$corTextoSecundario; 
+}
+
+.text--big {
+    @include text(18px)
+}
+.text {
+    @include text(16px)         //utilização do mixin no texto
+}
+.text--small {
+    @include text(12px)
+}
+
+.title--big {
+    @include title(44px)
+}
+.title{
+    @include title(40px)        // utilização do mixin no titulo
+}
+.title--small {
+    @include title(28px)
+}
+
+.link-text {
+    @include text(18px);
+    color: variaveis.$corTextoSecundario;
+    text-decoration: underline;     //utilização do mixin nos links
 }
