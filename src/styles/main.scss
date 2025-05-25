@@ -1,5 +1,7 @@
 @use 'variaveis'; //importação das variaveis
 @use 'hero'; //importação do hero
+@use 'shows'; //importção dos shows
+@use 'plans';
 
 @font-face {
     font-family: Avenir;
@@ -17,12 +19,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Avenir, sans-serif;
 }
 
 
 body {
     background-color: variaveis.$corDeFundo;
-    font-family: Avenir, sans-serif;
+    
 }
 
 @mixin text($fontSize: 16px) {
@@ -62,3 +65,16 @@ body {
     color: variaveis.$corTextoSecundario;
     text-decoration: underline;     //utilização do mixin nos links
 }
+
+    .button {
+            display: block; //para ele ficar com uma linha so para ele
+            width: 100%;
+            height: 60px;
+            font-size: 18px;
+            color: variaveis.$corTextoSecundario;
+            background-color: #6121ff;
+            text-transform: uppercase; //faz ficar em maiusculo
+            border-radius: 4px;
+            margin-top: 2vw;
+            margin-bottom: 8px;
+            }
