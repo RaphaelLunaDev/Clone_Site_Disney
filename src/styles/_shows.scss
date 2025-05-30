@@ -10,6 +10,10 @@
         grid-template-columns: 1fr 1fr 1fr;  //3 display grid com 3 colunas
         gap: 24px; //espaçamento entre as colunas
 
+        @media (max-width:768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
         &--is-active{
             display: grid;  //so sera visivel quando estiver ativo
         }
@@ -40,6 +44,10 @@
             &--is-active {
                 border-color: variaveis.$corTextoSecundario;
             }
+
+            @media (max-width:768px) {
+            font-size: 16px;
+        }
         }
     }
 }

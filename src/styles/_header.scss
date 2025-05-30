@@ -1,0 +1,65 @@
+@use 'variaveis';
+
+.header {
+    position: sticky;   //vai deixar ele fixo no topo
+    top: 0;     
+    left: 0;
+    background-color: variaveis.$corDeFundo;    //o header tera uma cor de fundo quando ja tiver passsado do hero
+    transition: .5s ease;
+    z-index: 1;     //meio que camadas (essa vasi ficar por cima de tudo)   (inclusive do rei leao que ta em position absolute)
+    
+    &--is-hidden {
+        background-color: transparent;  //quando tiver em cima do hero
+        transition: .5s ease;
+
+        .header__logo {
+            opacity: 0;      //quando tiver em cima do hero
+            visibility: hidden;
+            transition: .5s ease;
+        }
+
+        .header__links__item:first-child {       
+        opacity: 0;     //quando tiver em cima do hero
+        visibility: hidden;
+        transition: .5s ease;
+        }
+    }
+    &__container {
+        padding: 8px 36px;
+        display: flex;
+        justify-content: space-between;     //vai fazer o logo ficar na esquerda e o menu na direita
+
+        @media (max-width:768px) {
+            padding: 0 12px 0 20px;     //cima, direita, baixo, esquerda
+        }
+    }
+
+    &__logo {
+        max-width: 80px;
+        width: 100%;
+        margin: 5px;    //para alinhar com os botoes
+
+        @media (max-width:768px) {
+            max-width: 64px;
+        }
+    }
+
+    &__links {
+        display: flex;
+
+        &__item{
+            margin: 5px;
+        }
+    }
+
+    .button {
+        height: 50px;
+
+        @media (max-width:768px) {
+            font-size: 13px;
+            padding: 8px 11px;
+            height: 40px;
+            letter-spacing: 0;  //espaçamento das letras
+        }
+    }
+}
